@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 510917279}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.3, y: -12, z: 4}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 15.177455, y: 15.177455, z: 15.177455}
   m_Children: []
   m_Father: {fileID: 2859304061906235365}
@@ -122,6 +122,7 @@ GameObject:
   - component: {fileID: 2859304061906235365}
   - component: {fileID: 31022058}
   - component: {fileID: 31022059}
+  - component: {fileID: 1082742559}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -158,8 +159,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 30
-  moveableDistance: 12
-  mousPointer: {fileID: 0}
+  walkDistance: 12
+  stopDistance: 7
+  mousePointer: {fileID: 0}
+  spriteTr: {fileID: 5329916088177105709}
+  dashableDistance: 10
+  dashableTime: 0.4
+  mouseDownTime: 0
+  mouseDownPosition: {x: 0, y: 0, z: 0}
+  dashTime: 0.3
+  dashSpeedMultiplySpeed: 0.3
   jumpYac:
     serializedVersion: 2
     m_Curve:
@@ -193,8 +202,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  jumpYMultiply: 80
-  jumpTimeMultiply: 1
+  state: 0
+  jumpYMultiply: 120
+  jumpTimeMultiply: 0.5
 --- !u!195 &31022059
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -217,6 +227,18 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1082742559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891964365842100961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5db18ee9ce21a634c9f0c3bc0da0df95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3804175263231846781
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,6 +250,7 @@ GameObject:
   - component: {fileID: 5329916088177105709}
   - component: {fileID: 243380208188354770}
   - component: {fileID: 8231988909615721941}
+  - component: {fileID: 1201434158}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -243,7 +266,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3804175263231846781}
   m_LocalRotation: {x: 0.38268346, y: 0, z: 0, w: 0.9238795}
-  m_LocalPosition: {x: 0, y: -15.7, z: 1.0000019}
+  m_LocalPosition: {x: 0, y: 4.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2859304061906235365}
@@ -268,7 +291,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 6af1ef179b7a2c24ca880bc1c22d3148, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -319,3 +342,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1201434158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3804175263231846781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7a957e37da95464baa8067fc6756f4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startScale: {x: 1, y: 1}
+  _endScale: {x: 1, y: 1}
+  _trailLifetime: 0.2
+  _spawnType: 1
+  _timeBetweenTrailSpawn: 0.5
+  _distanceBetweenTrailSpawn: 2
+  _alphaUpdateOn: 1
+  _maxAlpha: 0.5
+  _minAlpha: 0
+  _useSolidColors: 0
+  _rainbowMode: 0
+  _userSelectedColorPalette: []
