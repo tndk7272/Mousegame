@@ -1,16 +1,20 @@
-﻿using System;
+﻿using NaughtyAttributes;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float speed = 5;
+     public float speed = 5;
     float normalSpeed;
     public float walkDistance = 12;
     public float stopDistance = 7;
     public Transform mousePointer;
     public Transform spriteTr;
+
+   
+
     Plane plane = new Plane(new Vector3(0, 1, 0), 0);
     SpriteTrailRenderer.SpriteTrailRenderer spriteTrailRenderer;
 
@@ -34,14 +38,13 @@ public class Player : MonoBehaviour
         Dash();
     }
 
-    [Header("Dash")]
-    public float dashCoolTime = 2;
-    float nextDashableTime; // 다음 대시 가능한 시간
-    public float dashableDistance = 10;
-    public float dashableTime = 0.4f; // 0.4초 안에 마우스 떼는걸 인식
 
-    float mouseDownTime;  
-    Vector3 mouseDownPosition; 
+    [Foldout("Dash")] public float dashCoolTime = 2;
+     float nextDashableTime; // 다음 대시 가능한 시간
+    [Foldout("Dash")] float dashableDistance = 10;
+    [Foldout("Dash")] float dashableTime = 0.4f; // 0.4초 안에 마우스 떼는걸 인식
+     float mouseDownTime;  
+     Vector3 mouseDownPosition; 
 
 
     private void Dash()
@@ -66,8 +69,8 @@ public class Player : MonoBehaviour
             }
         }
     }
-    public float dashTime = 0.3f;
-    public float dashSpeedMultiplySpeed = 4f;
+   [Foldout("Dash")]public float dashTime = 0.3f;
+    [Foldout("Dash")] public float dashSpeedMultiplySpeed = 4f;
     Vector3 dashDirection;
 
     private IEnumerator DashCo()
@@ -102,8 +105,8 @@ public class Player : MonoBehaviour
 
         return true;
     }
-    [Space(100)]
-    public AnimationCurve jumpYac;
+
+    [BoxGroup("Jump")] public AnimationCurve jumpYac;
     private void Jump()
     {
         if (jumpState == JumpStateType.Jump)
@@ -148,8 +151,8 @@ public class Player : MonoBehaviour
     }
     Animator animator;
     JumpStateType jumpState;
-    public float jumpYMultiply = 1;
-    public float jumpTimeMultiply = 1;
+    [BoxGroup("Jump")] float jumpYMultiply = 1;
+    [BoxGroup("Jump")] float jumpTimeMultiply = 1;
     private IEnumerator JumpCo()
     {
         jumpState = JumpStateType.Jump;
