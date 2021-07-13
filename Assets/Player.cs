@@ -35,13 +35,36 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        Move();
+        if(State!= StateType.Attack)
+        {
+            Move();
 
-        Jump();
+            Jump();
 
-        Dash();
+        }
+
+        bool isSucceedDash = Dash();
+
+        Attack(isSucceedDash);
     }
+    private void Attack(bool isSucceedDash)
+    {
+        if (isSucceedDash)
+            return;
+        // 마우스 왼쪽 버튼 뗏을때 공격
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            StartCoroutine(AttackCo());
+        }
 
+    }
+    public float attackTime = 1;
+    private IEnumerator AttackCo()
+    {
+        State = StateType.Attack;
+        yield return new WaitForSeconds(attackTime);
+        State = StateType.Idle;
+    }
 
     [Foldout("Dash")] public float dashCoolTime = 2;
     float nextDashableTime; // 다음 대시 가능한 시간
@@ -51,7 +74,7 @@ public class Player : MonoBehaviour
     Vector3 mouseDownPosition;
 
 
-    private void Dash()
+    private bool Dash()
     {
         // 마우스 누른 시점 위치랑 뗀 위치랑 찾아내자
         if (Input.GetKeyDown(KeyCode.Mouse0)) // 마우스 왼쪽클릭했을때 시간을 기억하자
@@ -60,18 +83,19 @@ public class Player : MonoBehaviour
             mouseDownPosition = Input.mousePosition; // (1920,1080) 
         }
 
-        if (nextDashableTime < Time.time)
+
+        if (Input.GetKeyUp(KeyCode.Mouse0))
         {
-            if (Input.GetKeyUp(KeyCode.Mouse0))
+            bool isDashDrag = IsSucceesDashDrag();
+            if (isDashDrag)
             {
-                bool isDashDrag = IsSucceesDashDrag();
-                if (isDashDrag)
-                {
-                    nextDashableTime = Time.time + dashCoolTime;
-                    StartCoroutine(DashCo());
-                }
+
+                StartCoroutine(DashCo());
+                return true;
             }
         }
+        return false;
+
     }
     [Foldout("Dash")] public float dashTime = 0.3f;
     [Foldout("Dash")] public float dashSpeedMultiplySpeed = 4f;
@@ -196,6 +220,7 @@ public class Player : MonoBehaviour
         if (Time.timeScale == 0)
             return;
 
+
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         if (plane.Raycast(ray, out float enter))
@@ -222,7 +247,7 @@ public class Player : MonoBehaviour
 
                 transform.Translate(dir * speed * Time.deltaTime, Space.World);
 
-               
+
                 if (CangeableState())
                     State = StateType.Walk;
             }
@@ -251,6 +276,8 @@ public class Player : MonoBehaviour
                     return false;
 
                 if (state == StateType.Dash)
+                    return false;
+                if (state == StateType.Attack)
                     return false;
 
                 return true;

@@ -976,6 +976,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 31022058, guid: 00bf52c3e3bb63246b0d5a9b89f12d8e, type: 3}
+      propertyPath: attackTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 31022058, guid: 00bf52c3e3bb63246b0d5a9b89f12d8e, type: 3}
       propertyPath: mousePointer
       value: 
       objectReference: {fileID: 598557583}
