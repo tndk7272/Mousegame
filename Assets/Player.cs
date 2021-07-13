@@ -1,21 +1,24 @@
 ﻿using NaughtyAttributes;
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-     public float speed = 5;
+    public static Player instance;
+    private void Awake()
+    {
+        instance = this;
+    }
+    public float speed = 5;
     float normalSpeed;
     public float walkDistance = 12;
     public float stopDistance = 7;
     public Transform mousePointer;
     public Transform spriteTr;
 
-   
 
-    Plane plane = new Plane(new Vector3(0, 1, 0), 0);
+
+    Plane plane = new Plane(new Vector3(0, 1, 0), 0); // 무한한 플랜을 만든다
     SpriteTrailRenderer.SpriteTrailRenderer spriteTrailRenderer;
 
 
@@ -26,6 +29,7 @@ public class Player : MonoBehaviour
         spriteTr = GetComponentInChildren<SpriteRenderer>().transform;
         spriteTrailRenderer = GetComponentInChildren<SpriteTrailRenderer.SpriteTrailRenderer>();
         spriteTrailRenderer.enabled = false;
+        //agent = GetComponent<NavMeshAgent>;
 
     }
 
@@ -40,11 +44,11 @@ public class Player : MonoBehaviour
 
 
     [Foldout("Dash")] public float dashCoolTime = 2;
-     float nextDashableTime; // 다음 대시 가능한 시간
+    float nextDashableTime; // 다음 대시 가능한 시간
     [Foldout("Dash")] float dashableDistance = 10;
     [Foldout("Dash")] float dashableTime = 0.4f; // 0.4초 안에 마우스 떼는걸 인식
-     float mouseDownTime;  
-     Vector3 mouseDownPosition; 
+    float mouseDownTime;
+    Vector3 mouseDownPosition;
 
 
     private void Dash()
@@ -69,7 +73,7 @@ public class Player : MonoBehaviour
             }
         }
     }
-   [Foldout("Dash")]public float dashTime = 0.3f;
+    [Foldout("Dash")] public float dashTime = 0.3f;
     [Foldout("Dash")] public float dashSpeedMultiplySpeed = 4f;
     Vector3 dashDirection;
 
@@ -95,7 +99,7 @@ public class Player : MonoBehaviour
     {
         //ㅅ ㅣ간 체크  
         float dragTime = Time.time - mouseDownTime;  // 얼만큼의 시간이 걸렸는ㄴ지 
-        if (dragTime > dashableTime)  
+        if (dragTime > dashableTime)
             return false;
 
         // 거리체크
@@ -163,6 +167,7 @@ public class Player : MonoBehaviour
         float jumpEndTime = jumpStartTime + jumpDuration;
         float sumEvaluateTime = 0;
         float previousY = 0;
+        //agent.enabled = false;
 
         while (Time.time < jumpEndTime)
         {
@@ -181,6 +186,7 @@ public class Player : MonoBehaviour
 
             sumEvaluateTime += Time.deltaTime;
         }
+        // agent.enabled = true;
         jumpState = JumpStateType.Ground;
         State = StateType.Idle;
     }
