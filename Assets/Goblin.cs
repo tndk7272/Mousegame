@@ -43,7 +43,7 @@ public class Goblin : MonoBehaviour
         while (Vector3.Distance(transform.position, player.transform.position) > detectRange)
         {
             yield return null;
-        }
+        } 
         currentFsm = ChaseFSM;
     }
     public float speed = 34;
