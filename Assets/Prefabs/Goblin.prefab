@@ -1,5 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+<<<<<<< HEAD
 --- !u!1 &194503395
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,6 +112,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   originalY: 0
+=======
+>>>>>>> 19baa7ca5e0ce0d1457e86ecf919f54b2534b98d
 --- !u!1 &1023866904934252785
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,9 +139,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1023866904934252785}
+<<<<<<< HEAD
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1.414, z: 1}
+=======
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 162.73352, y: 569.4719, z: -840.859}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+>>>>>>> 19baa7ca5e0ce0d1457e86ecf919f54b2534b98d
   m_Children: []
   m_Father: {fileID: 4883956028806815945}
   m_RootOrder: 0
@@ -222,8 +231,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4883956028806815945}
+<<<<<<< HEAD
   - component: {fileID: 1030094586}
   - component: {fileID: 871498582697553309}
+=======
+>>>>>>> 19baa7ca5e0ce0d1457e86ecf919f54b2534b98d
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Untagged
@@ -243,6 +255,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1023866904934252790}
+<<<<<<< HEAD
   - {fileID: 194503396}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -283,3 +296,8 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+=======
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> 19baa7ca5e0ce0d1457e86ecf919f54b2534b98d

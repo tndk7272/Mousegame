@@ -309,7 +309,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 251865210}
   m_LocalRotation: {x: -0.000000016727626, y: 0.9238795, z: -0.38268346, w: -0.000000040384055}
+<<<<<<< HEAD
   m_LocalPosition: {x: -0, y: -2.6, z: 52.9}
+=======
+  m_LocalPosition: {x: 0, y: -2.2, z: 53.3}
+>>>>>>> 19baa7ca5e0ce0d1457e86ecf919f54b2534b98d
   m_LocalScale: {x: 20.48, y: 1, z: 3.43}
   m_Children: []
   m_Father: {fileID: 0}
@@ -601,7 +605,11 @@ Transform:
   m_LocalScale: {x: 200, y: 100, z: 9.11}
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< HEAD
   m_RootOrder: 9
+=======
+  m_RootOrder: 8
+>>>>>>> 19baa7ca5e0ce0d1457e86ecf919f54b2534b98d
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &840842722
 GameObject:
@@ -899,6 +907,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1001 &2069029854
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -964,6 +973,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ebf5b985f8bbd947acad68135cff3d8, type: 3}
+=======
+>>>>>>> 19baa7ca5e0ce0d1457e86ecf919f54b2534b98d
 --- !u!1001 &3184463617573925187
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -975,10 +986,13 @@ PrefabInstance:
       propertyPath: state
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 31022058, guid: 00bf52c3e3bb63246b0d5a9b89f12d8e, type: 3}
       propertyPath: attackTime
       value: 0.5
       objectReference: {fileID: 0}
+=======
+>>>>>>> 19baa7ca5e0ce0d1457e86ecf919f54b2534b98d
     - target: {fileID: 31022058, guid: 00bf52c3e3bb63246b0d5a9b89f12d8e, type: 3}
       propertyPath: mousePointer
       value: 
@@ -990,6 +1004,7 @@ PrefabInstance:
     - target: {fileID: 31022058, guid: 00bf52c3e3bb63246b0d5a9b89f12d8e, type: 3}
       propertyPath: dashSpeedMultiplySpeed
       value: 4
+<<<<<<< HEAD
       objectReference: {fileID: 0}
     - target: {fileID: 31022059, guid: 00bf52c3e3bb63246b0d5a9b89f12d8e, type: 3}
       propertyPath: m_Height
@@ -1002,6 +1017,8 @@ PrefabInstance:
     - target: {fileID: 31022059, guid: 00bf52c3e3bb63246b0d5a9b89f12d8e, type: 3}
       propertyPath: avoidancePriority
       value: 10
+=======
+>>>>>>> 19baa7ca5e0ce0d1457e86ecf919f54b2534b98d
       objectReference: {fileID: 0}
     - target: {fileID: 1891964365842100961, guid: 00bf52c3e3bb63246b0d5a9b89f12d8e, type: 3}
       propertyPath: m_Name

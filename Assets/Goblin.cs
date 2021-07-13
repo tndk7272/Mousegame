@@ -32,7 +32,7 @@ public class Goblin : MonoBehaviour
     }
     Func<IEnumerator> currentFsm;
     Player player;
-    public float detectRange = 40;
+    public float detectRange = 40; 
     public float attackRange = 10;
 
     private void OnDrawGizmos()
@@ -52,7 +52,7 @@ public class Goblin : MonoBehaviour
         while (Vector3.Distance(transform.position, player.transform.position) > detectRange)
         {
             yield return null;
-        } 
+        }
         currentFsm = ChaseFSM;
     }
     public float speed = 34;
@@ -83,7 +83,7 @@ public class Goblin : MonoBehaviour
             yield return null;
 
         }
-    }
+        }
     public float attackTime = 1;
     private IEnumerator AttackFSM()
     {
