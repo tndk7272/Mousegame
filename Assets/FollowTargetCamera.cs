@@ -17,6 +17,7 @@ public class FollowTargetCamera : MonoBehaviour
         float width = height * camera.aspect;
 
         offset = target.position - transform.position;
+        // offset.x = 0; 카메라 시작위치 offset.x를  강제로 0으로 설정
         minX = width / 2 + moveableArea.transform.position.x + moveableArea.center.x - moveableArea.size.x / 2;
         maxX = -width / 2 + moveableArea.transform.position.x + moveableArea.center.x + moveableArea.size.x / 2;
         minZ = height / 2 + moveableArea.transform.position.z + moveableArea.center.z - moveableArea.size.z / 2;
