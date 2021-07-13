@@ -30,7 +30,7 @@ public class Goblin : MonoBehaviour
         }
 
     }
-    Func<IEnumerator> currentFsm;
+    Func<IEnumerator> currentFsm; 
     Player player;
     public float detectRange = 40; 
     public float attackRange = 10;
