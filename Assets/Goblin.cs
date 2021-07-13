@@ -30,9 +30,9 @@ public class Goblin : MonoBehaviour
         }
 
     }
-    Func<IEnumerator> currentFsm; 
+    Func<IEnumerator> currentFsm;
     Player player;
-    public float detectRange = 40; 
+    public float detectRange = 40;
     public float attackRange = 10;
 
     private void OnDrawGizmos()
@@ -63,23 +63,6 @@ public class Goblin : MonoBehaviour
         {
             Vector3 toPlayerDirection = player.transform.position - transform.position;
             toPlayerDirection.Normalize();
-            transform.Translate(toPlayerDirection * speed * Time.deltaTime, Space.World);
-
-            bool isRightSide = toPlayerDirection.x > 0;
-            if (isRightSide)
-            {
-                transform.rotation = Quaternion.Euler(Vector3.zero);
-            }
-            else
-            {
-                transform.rotation = Quaternion.Euler(0,180,0);
-            }
-            // 만약에 특정범위 안에 들어왔다면  
-            if (Vector3.Distance(transform.position, player.transform.position) < attackRange)
-            {
-                currentFsm = AttackFSM;
-                yield break;
-            }       
             yield return null;
 
         }
